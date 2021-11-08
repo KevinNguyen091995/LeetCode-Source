@@ -18,7 +18,9 @@ import java.util.HashMap;
 
 
 public class RemoveDuplicate {
+	//
 	//Using a HashMap:
+	//
     public String removeDuplicatesMap(int[] nums) {
         HashMap<Integer,Integer> map = new HashMap<>();
         int pointer = 0;
@@ -35,7 +37,10 @@ public class RemoveDuplicate {
         return "Amount of unique numbers in the array is " + pointer;
     }
     
+    //
     //Using 2 pointer with out HashMap:
+    //
+    
     public String removeDuplicatesPointer(int[] nums) {
         int j = 1;
         for(int i = 1; i < nums.length; i++){
