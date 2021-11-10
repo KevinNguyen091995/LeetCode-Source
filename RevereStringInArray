@@ -1,0 +1,36 @@
+package leetcode;
+//Challenge is to reverse a string in an array
+//FOUND at https://leetcode.com/problems/reverse-string/
+
+import java.util.Arrays;
+
+/*
+ * Write a function that reverses a string. The input string is given as an array of characters s.
+ * Example 1:
+ * Input: s = ["h","e","l","l","o"]
+ * Output: ["o","l","l","e","h"]
+ */
+
+
+public class ReverseStringArray {
+	public char[] reverseString(char[] s) {
+		System.out.println("Current Word: " + Arrays.toString(s));
+        int start = 0;
+        int end = s.length-1;
+        
+        for(int i = 0; i < s.length/2; i++){
+            char temp = s[i];
+            s[i] = s[end];
+            s[end--] = temp;
+        }
+        return s;
+	}
+	
+	public static void main(String[] args) {
+		ReverseStringArray test = new ReverseStringArray();
+		
+		System.out.println("Word Reversed: " + Arrays.toString(test.reverseString(new char[] {'h','e','l','l','o'})) + "\n");
+		System.out.println("Word Reversed: " + Arrays.toString(test.reverseString(new char[] {'e','d','o','c','t','e','e','L'})));
+	}
+
+}
