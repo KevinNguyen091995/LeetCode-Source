@@ -2,8 +2,6 @@ package leetcode;
 //Challenge is to reverse a word in a string, but keeping the word in a non-changed order.
 //FOUND AT https://leetcode.com/problems/reverse-words-in-a-string-iii/
 
-import java.util.Arrays;
-
 /*
  * Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
  * 
@@ -14,6 +12,7 @@ import java.util.Arrays;
 
 public class ReverseString {
 	
+	//Using StringBuilder reverse method for easier code.
 	public String reverseString(String s) {
 		String[] arr = s.split(" ");
 		StringBuilder str = new StringBuilder();
@@ -28,10 +27,34 @@ public class ReverseString {
 		str2.delete(str2.length()-1, str2.length());
         return str2.toString();
 	}
+	
+	//Without StringBuilder
+	public String reverseStringNonMethod(String s) {
+		String[] arr = s.split(" ");
+		StringBuilder str = new StringBuilder();
+		StringBuilder str2 = new StringBuilder();
+		
+		for(int i = 0; i < arr.length; i++) {
+			for(int j = arr[i].length()-1; j >= 0; j--) {
+				str.append(arr[i].charAt(j));
+			}
+			str2.append(str + " ");
+			str.setLength(0);
+		}
+		str2.delete(str2.length()-1, str2.length());
+        return str2.toString();
+	}
 
+	
 	public static void main(String[] args) {
 		ReverseString test = new ReverseString();
+		
+		System.out.println("Using StringBuilder Reverse method");
 		System.out.println(test.reverseString("This is a test."));
 		System.out.println(test.reverseString("Let's take LeetCode contest"));
+		
+		System.out.println("\nNot using StringBuilder Reverse method");
+		System.out.println(test.reverseStringNonMethod("This is a test."));
+		System.out.println(test.reverseStringNonMethod("Let's take LeetCode contest"));
 	}
 }
