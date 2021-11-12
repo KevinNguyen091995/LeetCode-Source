@@ -1,0 +1,87 @@
+package leetcode;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+
+//Challenge is to return the middle index of a linked list.
+//FOUND at https://leetcode.com/problems/middle-of-the-linked-list/
+
+/*
+ * Input: head = [1,2,3,4,5]
+ * Output: [3,4,5]
+ * Explanation: The middle node of the list is node 3.
+ */
+
+
+/*
+ * NOTE THAT A SINGLY-LINKED LIST IS ALREADY BUILT VIA LEETCODE
+ * BUILT A NON-DYNAMIC ADD LIST NODE
+ */
+
+public class MiddleofLinkedList {
+	
+	//Solution 1 with 2 pointer A move once B move twice
+    public String middleNodeSol1(ListNode head) {
+        ListNode current = head;
+        ListNode current1 = head;
+        while(current1 != null && current1.next != null){
+            current = current.next;
+            current1 = current1.next.next;
+        }
+        return ("The middle index linked list is " + current.data);
+    }
+    
+    //Solution 2 is dividing the count by 2:
+    public String middleNodeSol2(ListNode head) {
+        ListNode current = head;
+        int i[] = new int[100];
+        int k = 0;
+        
+        while(current.next != null){
+        	i[k++] = current.data;
+            current = current.next;
+        }
+        return ("The middle index linked list is " + i[(k/2)+(k%2)]);
+    }
+    
+	public static void main(String[] args) {
+		LinkedList test = new LinkedList();
+		MiddleofLinkedList test1 = new MiddleofLinkedList();
+
+		
+		ListNode head = new ListNode(25);
+		ListNode node2 = new ListNode(35);
+		ListNode node3 = new ListNode(40);
+		ListNode node4 = new ListNode(45);
+		ListNode node5 = new ListNode(50);
+		ListNode node6 = new ListNode(55);
+		ListNode node7 = new ListNode(60);
+		ListNode node8 = new ListNode(65);
+		
+		head.next = node2;
+		node2.next = node3;
+		node3.next = node4;
+		node4.next = node5;
+		node5.next = node6;
+		node6.next = node7;
+		node7.next = node8;
+		
+		int count = 1;
+		test.add(head.data);
+		
+		ListNode current = head;
+		
+		
+		while(current.next != null) {
+			current = current.next;
+			count++;
+			test.add(current.data);	
+		}
+		System.out.println(test);
+		System.out.println("There are a total of " + count + " nodes");
+		System.out.println(test.size());
+		
+		System.out.println(test1.middleNodeSol1(head));
+		System.out.println(test1.middleNodeSol2(head));
+	}
+}
