@@ -18,6 +18,21 @@ import java.util.LinkedList;
  * BUILT A NON-DYNAMIC ADD LIST NODE
  */
 
+
+//ListNode class that for new object nodes.
+/*
+*public class ListNode {
+*	int data;
+*	ListNode next;
+*		
+*	public ListNode(int data) {
+*		this.data = data;
+*	}
+*}  
+*/
+
+
+
 public class MiddleofLinkedList {
 	
 	//Solution 1 with 2 pointer A move once B move twice
@@ -85,3 +100,5 @@ public class MiddleofLinkedList {
 		System.out.println(test1.middleNodeSol2(head));
 	}
 }
+
+
