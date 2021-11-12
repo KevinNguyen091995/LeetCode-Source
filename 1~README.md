@@ -1,3 +1,3 @@
 # LeetCode-Source
 
-Source code for leetcode questions that are done daily for Data Structure (DS) algorithms familarity. 
+Source code for leetcode questions that are done at https://leetcode.com/ to gain familiarity with Data Structure (DS) algorithms.
